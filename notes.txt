@@ -1,0 +1,15 @@
+1. burn a mainsail image with raspberry pi imager. the one for this
+   example is mainsail 2.2.2 for arm64. be sure to set an appropriate
+   name for the system, along with enabling ssh and a default user
+
+2. for a new printer, install the neverslow default mainsail git repository.
+   this contains two tridents and a 2.4 .  this gets installed under at the
+   login root, and will be
+   a. ~/neverslow/stumpii
+   b. ~/neverslow/trashy
+   c. ~/neverslow/hussy
+
+3. create a symlink from printer_data/config to ~/neverslow/<printer>
+
+4. turn it on and pray
+
