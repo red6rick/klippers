@@ -1,8 +1,23 @@
-HISTSIZE=10000
-HISTFILESIZE=20000
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 # set options for less
 export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+HISTCONTROL=ignoreboth
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+shopt -s histappend
+shopt -s checkwinsize
 
 ######################################################################
 # bash options and features
@@ -34,5 +49,4 @@ alias ....='cd ../../../'  # Go back 3 directory levels
 # functions
 
 nd () { mkdir -p "$1" && cd "$1"; }         # Makes new Dir and jumps inside
-
 
