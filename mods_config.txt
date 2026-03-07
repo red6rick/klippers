@@ -1,0 +1,18 @@
+####################################################
+# my shutdown switch management
+
+# shutdown via button
+# dtoverlay=gpio-shutdown                 #default gpio 3
+dtoverlay=gpio-shutdown,gpio_pin=4      # first alt
+# dtoverlay=gpio-shutdown,gpio_pin=22     # second alt
+
+# led on gpio15
+gpio=15=op,dh
+
+#       +---+----+
+# 3v    | 1 |  2 | 5v     
+# gpio2 | 3 |  4 | 5v     
+# gpio3 | 5 |  6 | gnd    
+# gpio4 > 7 |  8 | gpio 14
+# gnd   > 9 | 10 < gpio 15
+# 
